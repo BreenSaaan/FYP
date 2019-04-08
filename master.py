@@ -311,7 +311,7 @@ def rotational_curvature_plot(stellar_type, sample, fit):
     # Plot characteristics
     plt.title("Rotational Curvature")
     plt.xlabel("Galactic radius (kpc)")
-    plt.ylabel("Rotational velocity (km/s)")
+    plt.ylabel("Rotational velocity (km$s^-1$)")
     plt.legend(loc="upper right")
     plt.xlim(0, 16)
     plt.ylim(0, 400)
