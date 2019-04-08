@@ -420,7 +420,7 @@ def main():
         sample = input("Enter the desired sample size (numerical quantity or all): ")
 
         if sample != "all":
-            sample = float(sample)
+            sample = int(sample)
 
         else:
              sample = "all"
