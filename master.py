@@ -81,8 +81,8 @@ def ss_model():
 
     # Plot characteristics
     plt.title("Solar System Rotational Curves")
-    plt.xlabel("Solar System Radius (AU)")
-    plt.ylabel("Rotational Velocity (km/s)")
+    plt.xlabel("Solar System Radius ($AU$)")
+    plt.ylabel("Rotational Velocity ($kms^{-1}$)")
     plt.xlim(0, 35)
     plt.ylim(0, 55)
     plt.legend(loc="upper right")
@@ -257,8 +257,8 @@ def stellar_distribution_plot(frame, fit):
     # Plot characteristics
     plt.title("Stellar Density Distribution")
     plt.legend(loc="upper right")
-    plt.xlabel("Galactic radius (kpc)")
-    plt.ylabel("Density distribution (count)")
+    plt.xlabel("Galactic radius ($kpc$)")
+    plt.ylabel("Density distribution ($count$)")
     plt.xlim(0, 16) # Adjustment for galactic radius
     plt.ylim(0, frame["bin_count"].values.max() + (1/10 * frame["bin_count"].values.max()))
     plt.show()
@@ -310,8 +310,8 @@ def rotational_curvature_plot(stellar_type, sample, fit):
 
     # Plot characteristics
     plt.title("Rotational Curvature")
-    plt.xlabel("Galactic radius (kpc)")
-    plt.ylabel("Rotational velocity (km$s^-1$)")
+    plt.xlabel("Galactic radius ($kpc$)")
+    plt.ylabel("Rotational velocity ($kms^{-1}$)")
     plt.legend(loc="upper right")
     plt.xlim(0, 16)
     plt.ylim(0, 400)
@@ -365,8 +365,8 @@ def dark_matter_distribution_plot(stellar_type, sample, fit):
 
     # Plot characteristics
     plt.title("Dark Matter Distribution")
-    plt.xlabel("Galactic radius (kpc)")
-    plt.ylabel("Mass (solar mass)")
+    plt.xlabel("Galactic radius ($kpc$)")
+    plt.ylabel("Mass ($solar mass$)")
     plt.legend(loc="upper right")
     plt.xlim(0, 16)
     plt.ylim(0, 1E12)
