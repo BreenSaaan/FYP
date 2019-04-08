@@ -130,10 +130,12 @@ def gen_data(stellar_type):
     # Calculation of rotational velocity of sources
     df["v_x"] = gc(df["ra"], df["dec"], df["parallax"], df["pmra"], df["pmdec"], df["radial_velocity"]).v_x.value
     df["v_y"] = gc(df["ra"], df["dec"], df["parallax"], df["pmra"], df["pmdec"], df["radial_velocity"]).v_y.value
-    df["rotational_velocity"] = np.sqrt((df["v_x"] ** 2) + (df["v_y"] ** 2))
+    df["v_z"] = gc(df["ra"], df["dec"], df["parallax"], df["pmra"], df["pmdec"], df["radial_velocity"]).v_z.value
+    df["rotational_velocity"] = np.sqrt((df["v_x"] ** 2) + (df["v_y"] ** 2) + (df["v_z"] ** 2))
     df["v_x_error"] = gc(df["ra_error"], df["dec_error"], df["parallax_error"], df["pmra_error"], df["pmdec_error"], df["radial_velocity_error"]).v_x.value
     df["v_y_error"] = gc(df["ra_error"], df["dec_error"], df["parallax_error"], df["pmra_error"], df["pmdec_error"], df["radial_velocity_error"]).v_y.value
-    df["rotational_velocity_error"] = np.sqrt((df["v_x_error"] ** 2) + (df["v_y_error"] ** 2))
+    df["v_z_error"] = gc(df["ra_error"], df["dec_error"], df["parallax_error"], df["pmra_error"], df["pmdec_error"], df["radial_velocity_error"]).v_z.value
+    df["rotational_velocity_error"] = np.sqrt((df["v_x_error"] ** 2) + (df["v_y_error"] ** 2) + (df["v_z_error"] ** 2))
 
     # Parsecs data frame to meters data frame
     df["meter"] = ((list(df["parsec"]) * u.pc).to(u.m)).value
