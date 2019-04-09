@@ -269,7 +269,16 @@ def stellar_distribution_plot(frame, fit):
     return
 
 def rotational_curvature_plot(stellar_type, sample, fit):
-
+    
+    # Galactic mass prediction (typically between 1E11 & 1E12)
+    gal_mass = float(input("Enter a galactic mass prediction (solar masses): "))
+    
+    if gal mass = float:
+        gal_mass = gal_mass
+        
+    else:
+        rotational_curvature_plot(stellar_type, sample, fit)
+    
     # Define the data frame
     df = gen_types(stellar_type, sample)
 
@@ -289,7 +298,7 @@ def rotational_curvature_plot(stellar_type, sample, fit):
     # Predicted Keplerian model
     g = 4.30091E-3
     xkm = np.linspace(5.4, 16, 50)
-    ykm = np.sqrt((g * 1E12) / (1000 * xkm))
+    ykm = np.sqrt((g * gal_mass) / (1000 * xkm))
     xk = np.array([0])
     yk = np.array([0])
     params = fix_points(fit, xkm, ykm, xk, yk)
@@ -323,6 +332,15 @@ def rotational_curvature_plot(stellar_type, sample, fit):
     return
 
 def dark_matter_distribution_plot(stellar_type, sample, fit):
+    
+    # Galactic mass prediction (typically between 1E11 & 1E12)
+    gal_mass = float(input("Enter a galactic mass prediction (solar masses): "))
+    
+    if gal mass = float:
+        gal_mass = gal_mass
+        
+    else:
+        dark_matter_distribution_plot(stellar_type, sample, fit)
 
     # Define the data frame
     df = gen_types(stellar_type, sample)
@@ -343,7 +361,7 @@ def dark_matter_distribution_plot(stellar_type, sample, fit):
     # Predicted Keplerian model
     g = 4.30091E-3
     xkm = np.linspace(5.4, 16, 50)
-    ykm = np.sqrt((g * 1E12) / (1000 * xkm))
+    ykm = np.sqrt((g * gal_mass) / (1000 * xkm))
     xk = np.array([0])
     yk = np.array([0])
     params = fix_points(fit, xkm, ykm, xk, yk)
