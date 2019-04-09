@@ -264,7 +264,7 @@ def stellar_distribution_plot(frame, fit):
     plt.title("Stellar Density Distribution")
     plt.legend(loc="upper right")
     plt.xlabel("Galactic radius ($kpc$)")
-    plt.ylabel("Density distribution ($arbitrary units$)")
+    plt.ylabel("Density distribution ($arbitrary$ $units$)")
     plt.xlim(0, 16) # Adjustment for galactic radius
     plt.ylim(0, frame["bin_count"].values.max() + (1/10 * frame["bin_count"].values.max()))
     plt.show()
@@ -390,7 +390,7 @@ def dark_matter_distribution_plot(stellar_type, sample, fit):
     # Plot characteristics
     plt.title("Dark Matter Distribution")
     plt.xlabel("Galactic radius ($kpc$)")
-    plt.ylabel("Mass ($solar mass$)")
+    plt.ylabel("Mass ($solar$ $mass$)")
     plt.legend(loc="upper right")
     plt.xlim(0, 16)
     plt.ylim(0, 1E12)
