@@ -274,7 +274,7 @@ def stellar_distribution_plot(frame, fit):
 
 def rotational_curvature_plot(stellar_type, sample, fit):
     
-    # Galactic mass prediction (typically between 1E11 & 1E12)
+    # Galactic mass prediction (typically between 1E10 & 1E12)
     gal_mass = float(input("Enter a galactic mass prediction (solar masses): "))
     
     if gal mass = float:
@@ -337,7 +337,7 @@ def rotational_curvature_plot(stellar_type, sample, fit):
 
 def dark_matter_distribution_plot(stellar_type, sample, fit):
     
-    # Galactic mass prediction (typically between 1E11 & 1E12)
+    # Galactic mass prediction (typically between 1E10 & 1E12)
     gal_mass = float(input("Enter a galactic mass prediction (solar masses): "))
     
     if gal mass = float:
