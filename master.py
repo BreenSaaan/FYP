@@ -228,6 +228,10 @@ def gen_bins(frame):
     count["bins"] = mid
     error["bins_error"] = mid_error
     error["bins_error"] = (error["bins_error"] * (frame["parallax_error"]/frame["parallax"])).reset_index(drop=True)
+    
+    # Set density as arbitrary units
+    count["bin_count"] = count["bin_count"]/count["bin_count"].values.max()
+    error["count_error"] = error["count_error"]/error["count_error"].values.max()
 
     # Merge data frames
     frame = pd.merge(count, error, how="left", left_index=True, right_index=True)
@@ -260,7 +264,7 @@ def stellar_distribution_plot(frame, fit):
     plt.title("Stellar Density Distribution")
     plt.legend(loc="upper right")
     plt.xlabel("Galactic radius ($kpc$)")
-    plt.ylabel("Density distribution ($count$)")
+    plt.ylabel("Density distribution ($arbitrary units$)")
     plt.xlim(0, 16) # Adjustment for galactic radius
     plt.ylim(0, frame["bin_count"].values.max() + (1/10 * frame["bin_count"].values.max()))
     plt.show()
