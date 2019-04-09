@@ -321,7 +321,7 @@ def rotational_curvature_plot(stellar_type, sample, fit):
     plt.plot(ndata, npoly(ndata), "--", ms=2, color="red", label="Dark matter contribution", zorder=3)
 
     # The Sun
-    plt.plot(8, 220, marker="o", ms=8, color="yellow", label="Sun", zorder=5)
+    plt.plot(8, 220, marker="*", ms=8, color="yellow", label="Sun", zorder=5)
 
     # Plot characteristics
     plt.title("Rotational Curvature")
@@ -385,7 +385,7 @@ def dark_matter_distribution_plot(stellar_type, sample, fit):
 
     # The Sun
     sun_mass = (((8000 * u.pc).to(u.m)) * ((220 * u.km / u.s).to(u.m / u.s)) ** 2 / 6.67408E-11)
-    plt.plot(8, sun_mass, marker="o", ms=8, color="yellow", label="Sun", zorder=5)
+    plt.plot(8, sun_mass, marker="*", ms=8, color="yellow", label="Sun", zorder=5)
 
     # Plot characteristics
     plt.title("Dark Matter Distribution")
