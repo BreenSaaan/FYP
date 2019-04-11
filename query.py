@@ -108,7 +108,7 @@ def main():
         # Input query parameters
         interval = float(input("Enter the desired scan interval (parsec): "))
         r = float(input("Enter the desired outer observation range (parsec): "))
-        degree = float(input("Enter the desired scan angle (at furtherest point): "))
+        degree = float(input("Enter the desired scan angle (degree): "))
 
         # Galactic center as focus
         ra, dec, opp_ra, opp_dec = 266.41683, -29.00781, 86.41683, 29.00781
