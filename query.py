@@ -19,7 +19,7 @@ import progressbar
 def fov(r, theta, h):
 
     # Set radius for field of view
-    radius = r * np.tan(np.radians(theta))
+    radius = r * np.tan(np.radians(theta/2))
 
     # Degree for field of view equation
     return np.round(2 * np.degrees(np.arctan(radius/h)), 6)
