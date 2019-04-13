@@ -23,8 +23,11 @@ def gc(ra, dec, p, pmra, pmdec, rv):
     # Returns (x, y, z) spatial coordinates wrt galactic center, thus distance is the square difference
     # Returns (v_x, v_y, v_z) velocity coordinates wrt galactic center, thus velocity is the square difference
 
+    # Velocity of the Sun
+    v_sun = coord.CartesianDifferential([12.4, 236, 7.7]*u.km/u.s)
+    
     # Galactocentric coordinates
-    return coordinates.transform_to(coord.Galactocentric(galcen_distance=8 * u.kpc, z_sun=0 * u.pc))
+    return coordinates.transform_to(coord.Galactocentric(galcen_distance=8 * u.kpc, galcen_v_sun=v_sun, z_sun=17 * u.pc))
 
 def fix_points(n, x, y, xf, yf) :
 
