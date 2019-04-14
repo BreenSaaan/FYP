@@ -139,28 +139,16 @@ def gen_data(stellar_type):
     df["v_y_error"] = gc(df["ra_error"], df["dec_error"], df["parallax_error"], df["pmra_error"], df["pmdec_error"], df["radial_velocity_error"]).v_y.value
     df["v_z_error"] = gc(df["ra_error"], df["dec_error"], df["parallax_error"], df["pmra_error"], df["pmdec_error"], df["radial_velocity_error"]).v_z.value
     df["rotational_velocity_error"] = np.sqrt((df["v_x_error"] ** 2) + (df["v_y_error"] ** 2) + (df["v_z_error"] ** 2))
-
-    # Parsecs data frame to meters data frame
-    df["meter"] = ((list(df["parsec"]) * u.pc).to(u.m)).value
-    df["meter_error"] = ((list(df["parsec_error"]) * u.pc).to(u.m)).value
-
-    # km/s data frame to m/s data frame
-    df["rotational_velocity_ms"] = ((list(df["rotational_velocity"]) * u.km/u.s).to(u.m/u.s)).value
-    df["rotational_velocity_ms_error"] = ((list(df["rotational_velocity_error"]) * u.km/u.s).to(u.m/u.s)).value
-
+    
     # Mass calculation (M = (R * V ** 2)/G)
-    df["mass"] = (df["meter"] * (df["rotational_velocity_ms"]) ** 2)/6.67408E-11
+    df["mass"] = (df["meter"] * (df["rotational_velocity_ms"]) ** 2)/4.30091E-3
 
     # Mass error calculation (DM = |R * V^2| * sqrt((DR/R) ** 2) + (|2| * V * DV/V ** 2) ** 2)
-    df["rotational_velocity_squared_error"] = np.abs(2) * df["rotational_velocity_ms"] * df["rotational_velocity_ms_error"]
-    df["radius_times_velocity_squared"] = np.abs(df['meter'] * (df["rotational_velocity_ms"] ** 2))
-    df["radius_error_over_radius_squared"] = (df["meter_error"]/df["meter"]) ** 2
-    df["rotational_velocity_squared_error_over_velocity_squared_squared"] = (df["rotational_velocity_squared_error"]/(df["rotational_velocity_ms"] ** 2)) ** 2
-    df["mass_error"] = (df["radius_times_velocity_squared"] * np.sqrt(df["radius_error_over_radius_squared"] + df["rotational_velocity_squared_error_over_velocity_squared_squared"]))/6.67408E-11
-
-    # Convert to mass to solar mass
-    df["mass"] = ((list(df["mass"]) * u.kg).to(u.M_sun)).value
-    df["mass_error"] = ((list(df["mass_error"]) * u.kg).to(u.M_sun)).value
+    df["rotational_velocity_squared_error"] = np.abs(2) * df["rotational_velocity"] * df["rotational_velocity_error"]
+    df["radius_times_velocity_squared"] = np.abs(df['parsec'] * (df["rotational_velocity"] ** 2))
+    df["radius_error_over_radius_squared"] = (df["parsec_error"]/df["parsec"]) ** 2
+    df["rotational_velocity_squared_error_over_velocity_squared_squared"] = (df["rotational_velocity_squared_error"]/(df["rotational_velocity"] ** 2)) ** 2
+    df["mass_error"] = (df["radius_times_velocity_squared"] * np.sqrt(df["radius_error_over_radius_squared"] + df["rotational_velocity_squared_error_over_velocity_squared_squared"]))/4.30091E-3
 
     # Reset data frame index
     df = df.reset_index(drop=True)
