@@ -276,6 +276,12 @@ def rotational_curvature_plot(stellar_type, sample, fit):
     
     # Define the data frame
     df = gen_types(stellar_type, sample)
+    
+    # Choice of binning values
+    # bin_range = np.linspace(0, 16, 16)
+    # df["bins"] = pd.cut(df["kiloparsec"], bin_range, labels=False)
+    # df["bins_error"] = pd.cut(df["kiloparsec_error"], bin_range, labels=False)
+    # A = df.groupby("bins", as_index=False)["bins_error", "rotational_velocity", "rotational_velocity_error"].mean()
 
     # Observational data plot
     plt.errorbar(df["kiloparsec"], df["rotational_velocity"], fmt="o", ms=0.5, color="black", xerr=df["kiloparsec_error"], yerr=df["rotational_velocity_error"], elinewidth=0.25, ecolor="grey", label="Gaia DR2", zorder=1)
@@ -339,6 +345,12 @@ def dark_matter_distribution_plot(stellar_type, sample, fit):
 
     # Define the data frame
     df = gen_types(stellar_type, sample)
+    
+    # Choice of binning values
+    # bin_range = np.linspace(0, 16, 20)
+    # df["bins"] = pd.cut(df["kiloparsec"], bin_range, labels=False)
+    # df["bins_error"] = pd.cut(df["kiloparsec_error"], bin_range, labels=False)
+    # A = df.groupby("bins", as_index=False)["bins_error", "mass", "mass_error"].mean()
 
     # Observational data plot
     plt.errorbar(df["kiloparsec"], df["mass"], fmt="o", ms=0.5, color="black", xerr=df["kiloparsec_error"], yerr=df["mass_error"],ecolor="grey", elinewidth=0.25, label="Gaia DR2", zorder=1)
